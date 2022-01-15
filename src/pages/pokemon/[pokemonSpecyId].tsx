@@ -12,7 +12,7 @@ const PokemonSpecyId: React.FC<PokemonSpecyIdProps> = ({ data }) => {
     console.log(data);
     return (
         <Layout>
-            Pokemon {data}
+            
         </Layout>
     )
 }
