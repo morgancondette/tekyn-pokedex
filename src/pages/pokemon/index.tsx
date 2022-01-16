@@ -10,8 +10,6 @@ type PokemonProps = {
 }
 
 const Pokemon: React.FC<PokemonProps> = ({ pokemonSpecyList }) => {
-
-    console.log(pokemonSpecyList)
     return (
         <Layout>
             <Search pokemonSpecyList={pokemonSpecyList} />

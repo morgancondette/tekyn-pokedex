@@ -4,16 +4,16 @@ import Layout from "../../containers/layout/layout"
 import ApolloClient from "../../apollo";
 import { POKEMON_SPECY_DETAILS } from "../../queries/pokemon";
 import { PokemonSpecyDetails } from "../../types/pokemon";
+import PokemonSpecyInformations from "../../containers/pokemon-specy-informations/pokemon-specy-informations";
 
 type PokemonSpecyIdProps = {
-    data: PokemonSpecyDetails;
+    pokemonSpecyInformations: PokemonSpecyDetails;
 }
 
-const PokemonSpecyId: React.FC<PokemonSpecyIdProps> = ({ data }) => {
-    console.log(data);
+const PokemonSpecyId: React.FC<PokemonSpecyIdProps> = ({ pokemonSpecyInformations }) => {
     return (
         <Layout>
-            
+            {pokemonSpecyInformations && <PokemonSpecyInformations pokemonSpecyDetails={pokemonSpecyInformations} />}
         </Layout>
     )
 }
@@ -22,11 +22,10 @@ export const getServerSideProps: GetServerSideProps = async (context: GetServerS
     const pokemonSpecyId = context.query.pokemonSpecyId
 
     const { data } = await ApolloClient.query({ query: POKEMON_SPECY_DETAILS, variables: { pokemonSpecyId } });
-    console.log(data)
 
     return {
         props: {
-            pokemonSpecyDetails: data.pokemon_v2_pokemon
+            pokemonSpecyInformations: data.pokemon_v2_pokemon[0]
         }
     }
 }
