@@ -1,3 +1,4 @@
+import React from "react";
 import ApolloClient from "../../apollo";
 import Search from "../../containers/search/search";
 import Layout from "../../containers/layout/layout";

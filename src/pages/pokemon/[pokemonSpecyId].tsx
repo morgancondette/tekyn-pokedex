@@ -1,3 +1,4 @@
+import React from "react";
 import { GetServerSideProps, GetServerSidePropsContext } from "next"
 import Layout from "../../containers/layout/layout"
 import ApolloClient from "../../apollo";
